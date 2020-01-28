@@ -6,11 +6,11 @@ Ext.application({
     extend: 'TestApp.Application',
 
     name: 'TestApp',
-
     requires: [
         // This will automatically load all classes in the TestApp namespace
         // so that application classes do not need to require each other.
         'TestApp.*'
+
     ],
 
     // The name of the initial view to create.
