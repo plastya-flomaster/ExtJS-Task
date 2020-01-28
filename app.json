@@ -79,7 +79,7 @@
          *         // The file used to save sass variables edited via Sencha Inspector and Sencha Themer.
          *         // This file will automatically be applied to the end of the scss build.
          *         "var": "sass/save.scss",
-         *
+         *      
          *         // The directory used to save generated sass sources.
          *         // This directory will automatically be applied to the end of the scss build.
          *         "src": "sass/save"
@@ -204,8 +204,7 @@
      */
     "js": [
         {
-            "path": "${framework.dir}/build/ext-all-rtl-debug.js",
-            "version": "ES6"
+            "path": "${framework.dir}/build/ext-all-rtl-debug.js"
         },
         {
             "path": "app.js",
@@ -357,7 +356,7 @@
      *          "css": "${app.output.resources}/${app.name}-all.css",
      *          "js": {
      *              "path": "app.js",
-     *              // This setting constrols the output language level.  Set to 'ES6' to
+     *              // This setting constrols the output language level.  Set to 'ES6' to 
      *              // disable the transpiler
      *              "version": "ES5"
      *          },
@@ -497,5 +496,5 @@
      * Uniquely generated id for this application, used as prefix for localStorage keys.
      * Normally you should never change this value.
      */
-    "id": "c584973f-8ef0-47c2-a2ad-82c72a302203"
+    "id": "84505dcf-0299-40a4-ba35-2ffe351804b5"
 }

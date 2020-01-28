@@ -4,7 +4,7 @@ Ext.define('TestApp.Views.Main', {
     xtype: 'app-main',
 
     requires: [
-        'Ext.MessageBox',
+        'Ext.window.MessageBox',
         'Ext.layout.Fit'
     ],
 
