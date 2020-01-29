@@ -5,24 +5,7 @@ Ext.define('TestApp.Controllers.ParticipantsController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.participants',
 
-    config: {
-        /*
-        Uncomment to add references to view components
-        refs: [{
-            ref: 'list',
-            selector: 'grid'
-        }],
-        */
-
-        /*
-        Uncomment to listen for events from view components
-        control: {
-            'useredit button[action=save]': {
-                click: 'updateUser'
-            }
-        }
-        */
-    },
+    config: { },
 
     init: function() {
 
@@ -31,5 +14,19 @@ Ext.define('TestApp.Controllers.ParticipantsController', {
         var dutyStore = this.getStore('duties');
         var record = dutyStore.getById(dutyId);
         return record ? record.get('dutyName') : 'не указано';
+    },
+    selectionchange: function(selModel, selected) {
+        this.setActiveRecord(selected[0] || null);
+    },
+    setActiveRecord: function(record){
+        var form = Ext.ComponentQuery.query('writerform')[0];
+        form.activeRecord = record;
+        if (record) {
+            Ext.ComponentQuery.query('#save')[0].enable();
+            form.loadRecord(record);
+        } else {
+            Ext.ComponentQuery.query('#save')[0].disable();
+            form.reset();
+        }
     }
 });

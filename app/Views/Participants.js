@@ -9,7 +9,9 @@ Ext.define('TestApp.Views.ListView.Participants', {
         'TestApp.Stores.Participants',
         'TestApp.Stores.Duties',
         'TestApp.Controllers.ParticipantsController',
-        'Ext.grid.plugin.CellEditing'
+        'Ext.grid.plugin.CellEditing',
+        'Ext.form.field.Text',
+        'Ext.toolbar.TextItem'
     ],
 
     title: 'Участники школьного проекта',
@@ -29,6 +31,7 @@ Ext.define('TestApp.Views.ListView.Participants', {
             text: 'Пользователь',
             xtype: 'templatecolumn',
             tpl: '{name} {surname}',
+            draggable: false,
             cell: {
                 userCls: 'bold'
             },
@@ -37,8 +40,8 @@ Ext.define('TestApp.Views.ListView.Participants', {
         {
             text: 'Имя',
             dataIndex: 'name',
+            draggable: false,
             editor: {
-                completeOnEnter: false,
                 field: {
                     xtype: 'textfield',
                     allowBlank: false
@@ -46,14 +49,22 @@ Ext.define('TestApp.Views.ListView.Participants', {
             }
         },
         {
+            text: 'Фамилия',
+            dataIndex: 'surname',
+            draggable: false
+
+        },
+        {
             text: 'Дата (мес./год)',
             dataIndex: 'date',
+            draggable: false,
             xtype: 'datecolumn',
             format: 'm/y',
             flex: 1
         }, {
             text: 'Должность',
             dataIndex: 'duty',
+            draggable: false,
             flex: 2,
             renderer: 'showDuties'
         }],
@@ -63,6 +74,7 @@ Ext.define('TestApp.Views.ListView.Participants', {
         clicksToEdit: 1
     },
     listeners: {
-       // select: 'onItemSelected'
+        selectionchange: 'selectionchange'
     }
+
 });

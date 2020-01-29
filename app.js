@@ -1,14 +1,18 @@
 /*
- * This call registers your application to be launched when the browser is ready.
+ * This file launches the application by asking Ext JS to create
+ * and launch() the Application class.
  */
 Ext.application({
+    extend: 'TestApp.Application',
+
     name: 'TestApp',
 
     requires: [
-        'Ext.window.MessageBox'
+        // This will automatically load all classes in the TestApp namespace
+        // so that application classes do not need to require each other.
+        'TestApp.*'
     ],
 
-    launch: function () {
-        Ext.Msg.alert('Hello Ext JS', 'Hello! Welcome to Ext JS.');
-    }
+    // The name of the initial view to create.
+    mainView: 'TestApp.Views.Main'
 });

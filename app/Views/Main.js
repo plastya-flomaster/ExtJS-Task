@@ -1,50 +1,25 @@
-
 Ext.define('TestApp.Views.Main', {
-    extend: 'Ext.tab.Panel',
+    extend: 'Ext.form.Panel',
     xtype: 'app-main',
-
+reference: 'app-main',
     requires: [
         'Ext.window.MessageBox',
         'Ext.layout.Fit'
     ],
-
     controller: 'main',
     viewModel: 'main',
-
-    defaults: {
-        tab: {
-            iconAlign: 'top'
-        }
+    layout: {
+        type: 'hbox',
+        align: 'stretch'
     },
-
     items: [
-        // TODO - Replace the content of this view to suit the needs of your application.
         {
-            title: 'Home',
-            iconCls: 'x-fa fa-home',
-            layout: 'fit',
-            // The following grid shares a store with the classic version's grid as well!
-            items: [{
-                xtype: 'mainlist'
-            }]
-        },{
-            title: 'Users',
-            iconCls: 'x-fa fa-user',
-            bind: {
-                html: '{loremIpsum}'
-            }
-        },{
-            title: 'Groups',
-            iconCls: 'x-fa fa-users',
-            bind: {
-                html: '{loremIpsum}'
-            }
-        },{
-            title: 'Settings',
-            iconCls: 'x-fa fa-cog',
-            bind: {
-                html: '{loremIpsum}'
-            }
-        }
-    ]
+            xtype: 'mainlist',
+            flex: 2
+        }, {
+            xtype: 'surnameform',
+            flex: 1,
+            margin: '10 10 10 10'
+
+        }]
 });
