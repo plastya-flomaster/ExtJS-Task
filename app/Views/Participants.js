@@ -11,7 +11,8 @@ Ext.define('TestApp.Views.ListView.Participants', {
         'TestApp.Controllers.ParticipantsController',
         'Ext.grid.plugin.CellEditing',
         'Ext.form.field.Text',
-        'Ext.toolbar.TextItem'
+        'Ext.toolbar.TextItem',
+        'TestApp.Views.DutyModalDialog'
     ],
 
     title: 'Участники школьного проекта',
@@ -68,7 +69,9 @@ Ext.define('TestApp.Views.ListView.Participants', {
             draggable: false,
             flex: 2,
             renderer: 'showDuties',
-            listener: 'onDutyClick'
+            listeners: {
+                click: 'onDutyClick'
+            }
         }],
     selModel: 'cellmodel',
     plugins: {
