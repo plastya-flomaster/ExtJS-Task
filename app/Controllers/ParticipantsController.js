@@ -24,13 +24,11 @@ Ext.define('TestApp.Controllers.ParticipantsController', {
     },
     setActiveRecord: function (record) {
         var form = Ext.getCmp('surnamePanel');
-        form.activeRecord = record; //.get('surname');
+        form.show();
+        form.activeRecord = record;
         if (record) {
             Ext.getCmp('save').enable();
             form.loadRecord(record);
-        } else {
-            Ext.getCmp('save').disable();
-            form.reset();
         }
     }
 });

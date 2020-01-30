@@ -24,12 +24,13 @@ Ext.define('TestApp.Controllers.SurnameController', {
         if (form.isValid()) {
             form.updateRecord(active);
             this.onReset();
+            form.hide();
         }
     },
 
     onReset: function () {
         var form = Ext.getCmp('surnamePanel');
-        form.activeRecord = null;
+        form.loadRecord(form.activeRecord);
         form.reset();
     }
 });

@@ -25,6 +25,7 @@ Ext.define('TestApp.Views.SurnameForm', {
         name: 'surname',
         allowBlank: false
     }],
+    hidden: true,
     dockedItems: [{
         xtype: 'toolbar',
         dock: 'bottom',
