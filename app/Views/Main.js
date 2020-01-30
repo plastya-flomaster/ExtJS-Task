@@ -1,7 +1,6 @@
 Ext.define('TestApp.Views.Main', {
     extend: 'Ext.form.Panel',
-    xtype: 'app-main',
-reference: 'app-main',
+    xtype: 'layout-horizontal-box',
     requires: [
         'Ext.window.MessageBox',
         'Ext.layout.Fit'
@@ -9,8 +8,7 @@ reference: 'app-main',
     controller: 'main',
     viewModel: 'main',
     layout: {
-        type: 'hbox',
-        align: 'stretch'
+        type: 'hbox'
     },
     items: [
         {
@@ -18,8 +16,6 @@ reference: 'app-main',
             flex: 2
         }, {
             xtype: 'surnameform',
-            flex: 1,
-            margin: '10 10 10 10'
-
+            flex: 1
         }]
 });

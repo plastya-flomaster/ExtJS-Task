@@ -18,25 +18,27 @@ Ext.define('TestApp.Views.SurnameForm', {
         anchor: '100%',
         labelAlign: 'right'
     },
+    id: 'surnamePanel',
     items: [{
+        margin: '20 0 20 20',
         fieldLabel: 'Фамилия',
         name: 'surname',
-        allowBlank: false,
-        vtype: 'surname'
+        allowBlank: false
     }],
     dockedItems: [{
         xtype: 'toolbar',
         dock: 'bottom',
         ui: 'footer',
-        layout:{
+        layout: {
             pack: 'end'
         },
         items: [{
-            itemId: 'save',
+            id: 'save',
             text: 'Применить',
             disabled: true,
             handler: 'onSave'
         }, {
+            id: 'reset',
             text: 'Очистить',
             handler: 'onReset'
         }]

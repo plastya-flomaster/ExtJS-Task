@@ -5,9 +5,9 @@ Ext.define('TestApp.Controllers.ParticipantsController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.participants',
 
-    config: { },
+    config: {},
 
-    init: function() {
+    init: function () {
 
     },
     showDuties: function (dutyId) {
@@ -15,17 +15,21 @@ Ext.define('TestApp.Controllers.ParticipantsController', {
         var record = dutyStore.getById(dutyId);
         return record ? record.get('dutyName') : 'не указано';
     },
-    selectionchange: function(selModel, selected) {
+
+    onDutyClick: function () {
+        console.log('df');
+    },
+    selectionChange: function (selModel, selected) {
         this.setActiveRecord(selected[0] || null);
     },
-    setActiveRecord: function(record){
-        var form = Ext.ComponentQuery.query('writerform')[0];
-        form.activeRecord = record;
+    setActiveRecord: function (record) {
+        var form = Ext.getCmp('surnamePanel');
+        form.activeRecord = record; //.get('surname');
         if (record) {
-            Ext.ComponentQuery.query('#save')[0].enable();
+            Ext.getCmp('save').enable();
             form.loadRecord(record);
         } else {
-            Ext.ComponentQuery.query('#save')[0].disable();
+            Ext.getCmp('save').disable();
             form.reset();
         }
     }

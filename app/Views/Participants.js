@@ -22,6 +22,7 @@ Ext.define('TestApp.Views.ListView.Participants', {
         {
             store: '{participants}'
         },
+    forceFit: true,
 
     columns: [{
         text: '№',
@@ -66,7 +67,8 @@ Ext.define('TestApp.Views.ListView.Participants', {
             dataIndex: 'duty',
             draggable: false,
             flex: 2,
-            renderer: 'showDuties'
+            renderer: 'showDuties',
+            listener: 'onDutyClick'
         }],
     selModel: 'cellmodel',
     plugins: {
@@ -74,7 +76,7 @@ Ext.define('TestApp.Views.ListView.Participants', {
         clicksToEdit: 1
     },
     listeners: {
-        selectionchange: 'selectionchange'
+        selectionchange: 'selectionChange'
     }
 
 });
