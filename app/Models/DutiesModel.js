@@ -11,7 +11,7 @@ Ext.define('TestApp.Models.DutiesModel', {
             name: 'displayValue',
             depends: ['id', 'dutyName'],
             calculate: function (record) {
-                return '' + record.id + '. ' + record.dutyName;
+                return record.id + '. ' + record.dutyName;
             }
         }
     ]

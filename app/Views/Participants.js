@@ -16,7 +16,7 @@ Ext.define('TestApp.Views.ListView.Participants', {
     ],
 
     title: 'Участники школьного проекта',
-
+    session: true,
     viewModel: 'listVm',
     controller: 'participants',
     bind:
@@ -73,6 +73,7 @@ Ext.define('TestApp.Views.ListView.Participants', {
                 click: 'onDutyClick'
             }
         }],
+
     selModel: 'cellmodel',
     plugins: {
         ptype: 'cellediting',

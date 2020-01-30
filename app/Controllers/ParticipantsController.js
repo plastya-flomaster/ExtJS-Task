@@ -19,17 +19,19 @@ Ext.define('TestApp.Controllers.ParticipantsController', {
     },
 
     onDutyClick: function (_this, cellElem, rowIndex) {
-        var gridstore = _this.getStore();
-        var id = gridstore.data.items[rowIndex].get('id');
-
-        var view = this.getView();
+        var gridstore = _this.getStore(),
+            view = this.getView(),
+            record = gridstore.data.items[rowIndex];
         this.dialog = view.add({
             xtype: 'dutymodaldialog',
             viewModel: {
                 data: {
-                    selectedDuty: id
+                    title: record.get('name') + ' ' + record.get('surname'),
+                    dutyId: record.get('duty'),
+                    participantId: record.get('id')
                 }
-            }
+            },
+            session: true
         });
         this.dialog.show();
     },
@@ -49,27 +51,12 @@ Ext.define('TestApp.Controllers.ParticipantsController', {
     },
 
     onSaveClick: function () {
-        // // Save the changes pending in the dialog's child session back to the
-        // // parent session.
-        // var dialog = this.dialog,
-        //     form = this.lookupReference('form'),
-        //     isEdit = this.isEdit,
-        //     id;
-        //
-        // if (form.isValid()) {
-        //     if (!isEdit) {
-        //         // Since we're not editing, we have a newly inserted record. Grab the id of
-        //         // that record that exists in the child session
-        //         id = dialog.getViewModel().get('theCustomer').id;
-        //     }
-        //     dialog.getSession().save();
-        //     if (!isEdit) {
-        //         // Use the id of that child record to find the phantom in the parent session,
-        //         // we can then use it to insert the record into our store
-        //         this.getStore('customers').add(this.getSession().getRecord('Customer', id));
-        //     }
-        //     this.onCancelClick();
-        // }
+        var dialog = this.dialog,
+            participantId = dialog.getViewModel().get('participantId'),
+            newDutyId = dialog.getViewModel().get('dutyId');
+        dialog.getSession().save();
+        this.getStore('participants').getById(participantId).set('duty', newDutyId);
+        this.onCancelClick();
     },
 
     onCancelClick: function () {

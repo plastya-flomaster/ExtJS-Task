@@ -7,18 +7,21 @@ Ext.define('TestApp.ViewModels.ListViewModel', {
     requires: ['TestApp.Stores.Duties'],
     stores: {
         participants: {
-           // model: 'TestApp.Models.Participants',
+            // model: 'TestApp.Models.Participants',
             type: 'ParticipantsStore',
             autoLoad: true
         },
         duties: {
+            model: 'TestApp.Models.DutiesModel',
             type: 'DutiesStore',
-            autoLoad: true
+            autoLoad: true,
+            session: true
         }
     },
 
-    data: {},
-    formulas: {
-
-    }
+    data: {
+        dutyId: null,
+        participantId: null
+    },
+    formulas: {}
 });

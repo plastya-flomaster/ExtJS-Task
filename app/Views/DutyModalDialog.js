@@ -6,7 +6,9 @@ Ext.define('TestApp.Views.DutyModalDialog', {
     xtype: 'dutymodaldialog',
     alias: 'widget.dutymodaldialog',
     modal: true,
-    title: 'Редактирование должности',
+    bind: {
+        title: 'Изменить должность: ' + '{title}'
+    },
     height: 200,
     width: 400,
     layout: {
@@ -14,20 +16,23 @@ Ext.define('TestApp.Views.DutyModalDialog', {
         pack: 'center',
         align: 'middle'
     },
-
+    viewmodel: 'listVm',
     items: [{
-        xtype: 'combo',
+        xtype: 'combobox',
         fieldLabel: 'Должность',
         displayField: 'displayValue',
-        valueField: '{duties.id}',
+        valueField: 'id',
+
         bind: {
-            value: '{selectedDuty}',
-            store: '{duties}'
+            store: '{duties}',
+            value: '{dutyId}'
         },
         forceSelection: true,
+        queryMode: 'local',
         editable: false
 
     }],
+
     buttons: [{
         text: 'Сохранить',
         handler: 'onSaveClick'
