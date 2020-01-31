@@ -1,12 +1,10 @@
 Ext.define('TestApp.Views.Main', {
     extend: 'Ext.form.Panel',
-    xtype: 'layout-horizontal-box',
     requires: [
         'Ext.window.MessageBox',
         'Ext.layout.Fit'
     ],
     controller: 'main',
-    viewModel: 'main',
     layout: {
         type: 'hbox'
     },
@@ -17,5 +15,10 @@ Ext.define('TestApp.Views.Main', {
         }, {
             xtype: 'surnameform',
             flex: 1
-        }]
+        }],
+    buttons: [
+        {
+            text: 'Выйти'
+        }
+    ]
 });

@@ -24,7 +24,6 @@ Ext.define('TestApp.Views.ListView.Participants', {
             store: '{participants}'
         },
     forceFit: true,
-
     columns: [{
         text: '№',
         xtype: 'rownumberer'
@@ -54,7 +53,6 @@ Ext.define('TestApp.Views.ListView.Participants', {
             text: 'Фамилия',
             dataIndex: 'surname',
             draggable: false
-
         },
         {
             text: 'Дата (мес./год)',
@@ -80,7 +78,7 @@ Ext.define('TestApp.Views.ListView.Participants', {
         clicksToEdit: 1
     },
     listeners: {
-        selectionchange: 'selectionChange'
+    cellClick: 'selectionChange'
     }
 
 });

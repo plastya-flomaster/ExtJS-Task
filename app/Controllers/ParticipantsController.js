@@ -34,8 +34,11 @@ Ext.define('TestApp.Controllers.ParticipantsController', {
         this.dialog.show();
     },
 
-    selectionChange: function (selModel, selected) {
-        this.setActiveRecord(selected[0] || null);
+    selectionChange: function (view, cell, cellIndex, record) {
+        if (cellIndex === 3) //3 -- столбец с фамилией (не знаю как сделать по id)
+        {
+            this.setActiveRecord(record || null);
+        }
     },
 
     setActiveRecord: function (record) {
