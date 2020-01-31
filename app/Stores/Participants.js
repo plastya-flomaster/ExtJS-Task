@@ -19,7 +19,8 @@ Ext.define('TestApp.Stores.Participants', {
             {id: '2', name: 'Валерий', surname: 'Остапенко', date: new Date('2016-09-01'), duty: 2},
             {id: '3', name: 'Марина', surname: 'Кетова', date: new Date('2014-09-01'), duty: 2},
             {id: '4', name: 'Татьяна', surname: 'Агеева', date: new Date('2016-09-01'), duty: 3},
-            {id: '5', name: 'Сергей', surname: 'Иванов', date: new Date('2012-09-01'), duty: 2}
+            {id: '5', name: 'Сергей', surname: 'Михайлов', date: new Date('1969-01-01')},
+            {id: '6', name: 'Сергей', surname: 'Иванов', date: new Date('2012-09-01'), duty: 2}
         ]
     },
 

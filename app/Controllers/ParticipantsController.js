@@ -9,9 +9,6 @@ Ext.define('TestApp.Controllers.ParticipantsController', {
     ],
     config: {},
 
-    init: function () {
-
-    },
     showDuties: function (dutyId) {
         var dutyStore = this.getStore('duties');
         var record = dutyStore.getById(dutyId);
@@ -22,6 +19,7 @@ Ext.define('TestApp.Controllers.ParticipantsController', {
         var gridstore = _this.getStore(),
             view = this.getView(),
             record = gridstore.data.items[rowIndex];
+
         this.dialog = view.add({
             xtype: 'dutymodaldialog',
             viewModel: {

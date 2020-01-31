@@ -9,7 +9,8 @@ Ext.define('TestApp.Stores.Duties', {
     data: [
         {id: '1', dutyName: 'Директор'},
         {id: '2', dutyName: 'Ученик'},
-        {id: '3', dutyName: 'Учитель'}
+        {id: '3', dutyName: 'Учитель'},
+        {id: '4', dutyName: 'Родитель'}
     ]
 
 });

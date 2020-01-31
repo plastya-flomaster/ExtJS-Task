@@ -6,7 +6,8 @@ Ext.define('TestApp.Models.Users', {
 
     fields: [
         { name: 'login', type: 'string'},
-        { name: 'password', type: 'string'}
+        { name: 'password', type: 'string'},
+        { name: 'rememberMe', type: 'boolean'}
     ],
 
     validators: {
