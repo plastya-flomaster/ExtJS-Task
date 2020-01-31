@@ -3,10 +3,10 @@ Ext.define('TestApp.Views.LoginView', {
     xtype: 'login',
 
     title: 'Login',
-    frame:true,
+    frame: true,
     width: 320,
     bodyPadding: 10,
-
+    controller: 'login',
     defaultType: 'textfield',
 
     items: [{
@@ -21,16 +21,16 @@ Ext.define('TestApp.Views.LoginView', {
         emptyText: 'Введите пароль...',
         inputType: 'password'
     }, {
-        xtype:'checkbox',
+        xtype: 'checkbox',
         fieldLabel: 'Запомнить меня',
         name: 'rememberMe'
     }],
 
     buttons: [
-        { text:'Войти' }
+        {text: 'Войти'}
     ],
 
-    initComponent: function() {
+    initComponent: function () {
         this.defaults = {
             anchor: '100%',
             labelWidth: 120

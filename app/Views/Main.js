@@ -18,7 +18,8 @@ Ext.define('TestApp.Views.Main', {
         }],
     buttons: [
         {
-            text: 'Выйти'
+            text: 'Выйти',
+            handler: 'onButtonClick'
         }
     ]
 });
