@@ -1,10 +1,15 @@
 Ext.define('TestApp.Views.Main', {
     extend: 'Ext.form.Panel',
     requires: [
-        'Ext.window.MessageBox',
-        'Ext.layout.Fit'
-    ],
+        'Ext.plugin.Viewport',
+        'TestApp.Controllers.MainController'    ],
+    xtype: 'main',
+
     controller: 'main',
+    plugins: 'viewport',
+
+   // ui: 'navigation',
+
     layout: {
         type: 'hbox'
     },

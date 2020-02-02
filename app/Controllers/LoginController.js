@@ -6,10 +6,19 @@ Ext.define('TestApp.Controllers.LoginController', {
     alias: 'controller.login',
 
     routes: {
-        'login': 'onLogin'
+        'home': 'onHome'
     },
 
-    onLogin: function () {
-        console.log('редиректчено на логин');
+    onHome: function () {
+        console.log('редиректчено на home');
+    },
+
+    onLoginClick: function() {
+        localStorage.setItem('LoggedIn', true);
+        this.getView().destroy();
+        Ext.create({
+            xtype: 'main'
+        })
+
     }
 });

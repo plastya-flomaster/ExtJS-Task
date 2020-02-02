@@ -6,16 +6,28 @@ Ext.define('TestApp.Controllers.MainController', {
     extend: 'Ext.app.ViewController',
 
     alias: 'controller.main',
-    requires: ['TestApp.Controllers.LoginController'],
+    requires: [],
     routes: {
         //хэш this.redirectTo(‘home’); //редиректит на http://localhost#homePage
-        'home': 'onHome'
+        'home': 'onHome',
+        'login': 'onLogin'
     },
 
     onHome: function () {
         console.log('редиректчено');
     },
-    onButtonClick: function () {
-        this.redirectTo('home');
+
+    onLogin: function () {
+        console.log('редирццццццектчено');
+    },
+
+    onButtonClick: function () { 
+    //this.redirectTo('login'); //document.location.href
+    localStorage.removeItem('LoggedIn');
+    this.getView().destroy();
+    Ext.create({
+        xtype: 'login'
+    });
     }
+
 });
