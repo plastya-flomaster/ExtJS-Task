@@ -1,50 +1,47 @@
-/**
- * Форма входа в приложение
- */
 Ext.define('TestApp.Views.Login', {
     extend: 'Ext.window.Window',
     xtype: 'login',
+    requires: [
+        'TestApp.Controllers.LoginController',
+        'Ext.form.Panel',
+        'Ext.form.field.Checkbox'
+    ],
 
-    requires: ['TestApp.Controllers.LoginController',
-        'Ext.form.Panel'],
-    autoshow: true,
-    closable: false,
-    title: 'Войти',
-    frame: true,
-    width: 320,
-    bodyPadding: 10,
     controller: 'login',
-    defaultType: 'textfield',
-
+    bodyPadding: 10,
+    title: 'Вход в систему',
+    closable: false,
+    autoShow: true,
     items: [{
-        allowBlank: false,
+        id: 'username',
+        xtype: 'textfield',
         fieldLabel: 'Логин',
-        name: 'login',
-        emptyText: 'example@email.com'
+        allowBlank: false
     }, {
-        allowBlank: false,
+        id: 'password',
+        xtype: 'textfield',
+        inputType: 'password',
         fieldLabel: 'Пароль',
-        name: 'pass',
-        emptyText: 'Введите пароль...',
-        inputType: 'password'
+        allowBlank: false
     }, {
-        xtype: 'displayfield',
-        hideEmptyLabel: false,
-        value: 'Введите пароль!!!'
-    },
-    {
+        id: 'rememberMe',
         xtype: 'checkbox',
-        fieldLabel: 'Запомнить меня',
-        name: 'rememberMe'
+        boxLabel: 'Запомнить меня',
+        formBind: true
     }],
-
-    buttons: [
-        {
-            text: 'Войти',
-            formBind: true, //This means that the Button will not be clickable until the two input fields contain values.
-            listeners: {
-                click: 'onLoginClick'
-            }
+    buttons: [{
+        formBind: true,
+        text: 'Войти',
+        listeners: {
+            click: 'onLoginClick'
         }
-    ]
+    }],
+    defaults: {
+        listeners: {
+            specialkey: 'checkIfEnter'
+        }
+    },
+    listeners: {
+        show: 'onShow'
+    }
 });

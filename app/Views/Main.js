@@ -24,7 +24,7 @@ Ext.define('TestApp.Views.Main', {
     buttons: [
         {
             text: 'Выйти',
-            handler: 'onButtonClick'
+            handler: 'onLogoutClick'
         }
     ]
 });
