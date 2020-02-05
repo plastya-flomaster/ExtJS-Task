@@ -23,10 +23,11 @@ Ext.define('TestApp.Controllers.LoginController', {
 
         //если выбрана галка "запомни меня"
         if (view.lookupComponent('rememberMe').getValue()) {
-            localStorage.setItem('CurrentUser', {
-                login: view.lookupComponent('username'),
-                password: view.lookupComponent('password')
-            });
+            var user = {
+                login: view.lookupComponent('username').value,
+                password: view.lookupComponent('password').value
+            };
+            localStorage.setItem('CurrentUser', JSON.stringify(user));
         }
         localStorage.setItem('LoggedIn', true);
         view.destroy();
@@ -34,12 +35,11 @@ Ext.define('TestApp.Controllers.LoginController', {
             xtype: 'main'
         });
     },
-    onShow: function () {
-        var view = this.getView(),
-            user = localStorage.getItem('CurrentUser');
+    onShow: function (_this) {
+        var user = JSON.parse(localStorage.getItem('CurrentUser'));
         if (user) {
-            view.lookupComponent('username').setValue(user.login);
-            view.lookupComponent('password').setValue(user.password);
+            _this.lookupComponent('username').setValue(user.login);
+            _this.lookupComponent('password').setValue(user.password);
         }
     }
 });
