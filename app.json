@@ -338,7 +338,6 @@
         "microloader": "bootstrap.js",
         "css": "bootstrap.css"
     },
-
     /**
      * Controls the output directory for build resources.  May be set with
      * either a string:
@@ -389,6 +388,9 @@
         "base": "${workspace.build.dir}/${build.environment}/${app.name}",
         "appCache": {
             "enable": false
+        },
+        "js": {
+            "version": "ES6"
         }
     },
 

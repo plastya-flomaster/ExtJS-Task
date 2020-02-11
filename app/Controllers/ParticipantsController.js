@@ -10,8 +10,8 @@ Ext.define('TestApp.Controllers.ParticipantsController', {
     config: {},
 
     showDuties: function (dutyId) {
-        var dutyStore = this.getStore('duties');
-        var record = dutyStore.getById(dutyId);
+        const dutyStore = this.getStore('duties');
+        const record = dutyStore.getById(dutyId);
         return record ? record.get('dutyName') : 'не указано';
     },
 
@@ -24,7 +24,7 @@ Ext.define('TestApp.Controllers.ParticipantsController', {
             xtype: 'dutymodaldialog',
             viewModel: {
                 data: {
-                    title: record.get('name') + ' ' + record.get('surname'),
+                    title: `${record.get('name')} ${record.get('surname')}`,
                     dutyId: record.get('duty'),
                     participantId: record.get('id')
                 }

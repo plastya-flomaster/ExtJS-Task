@@ -23,7 +23,7 @@ Ext.define('TestApp.Controllers.LoginController', {
 
         //если выбрана галка "запомни меня"
         if (view.lookupComponent('rememberMe').getValue()) {
-            var user = {
+            let user = {
                 login: view.lookupComponent('username').value,
                 password: view.lookupComponent('password').value
             };
